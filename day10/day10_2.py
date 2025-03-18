@@ -10,7 +10,7 @@ with open("data.txt",'r') as file:
     right_dots = []
     all_way = []
     all_way.append(place)
-    print(place)
+
     if place[0]-1 >=0 and pipe_map[place[0]-1][place[1]] in ["|","F","7"]:
         left_dots.append((place[0],place[1]-1))
         right_dots.append((place[0],place[1]+1))
@@ -30,12 +30,9 @@ with open("data.txt",'r') as file:
     steps = 1
     
     
-    # place = (2,12)
     while pipe_map[place[0]][place[1]] != "S":
-        # print(pipe_map[place[0]][place[1]])
         all_way.append(place)
         steps+=1
-        # print(pipe_map[place[0]][place[1]])
         if pipe_map[place[0]][place[1]] == "|":
             if (place[0]+1,place[1]) != old_place:
                 if place[1]+1 < pipe_map.shape[1]:
@@ -52,11 +49,7 @@ with open("data.txt",'r') as file:
                 old_place = place
                 place = (place[0]-1,place[1])
         elif pipe_map[place[0]][place[1]] == "L":
-            # print("awda")
-            if place[0] == 3:
-                        print((place[0],place[1]),"wtf")
             if (place[0]-1,place[1]) != old_place:
-                # print("co")
                 if place[0]+1 < pipe_map.shape[0]:
                     left_dots.append((place[0]+1,place[1]))
                 if place[1]-1 >=0:
@@ -100,8 +93,7 @@ with open("data.txt",'r') as file:
                 if place[1]+1 < pipe_map.shape[1]:
                     left_dots.append((place[0],place[1]+1))
                 old_place = place
-                place = (place[0],place[1]-1)
-            # break   
+                place = (place[0],place[1]-1) 
         elif pipe_map[place[0]][place[1]] == "7":
             if (place[0]+1,place[1]) != old_place:
                 if place[0]-1 >=0:

@@ -5,7 +5,6 @@ with open("data.txt",'r') as file:
     place  = np.where(pipe_map == "S")
     place = (place[0][0],place[1][0])
     old_place = place
-    print(place)
     if place[0]-1 >=0 and pipe_map[place[0]-1][place[1]] in ["|","L","F","J","7","-"]:
         place = (place[0]-1,place[1])
     elif place[1]-1 >=0 and pipe_map[place[0]][place[1]-1] in ["|","L","F","J","7","-"]:
@@ -17,7 +16,6 @@ with open("data.txt",'r') as file:
     steps = 1
     while pipe_map[place[0]][place[1]] != "S":
         steps+=1
-        # print(pipe_map[place[0]][place[1]])
         if pipe_map[place[0]][place[1]] == "|":
             if (place[0]+1,place[1]) != old_place:
                 old_place = place
